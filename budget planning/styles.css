@@ -1,0 +1,415 @@
+/* Pixel-art font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('./img/index/background_spring.png');
+    background-size: cover; /* Changed to cover for better scrolling */
+    background-attachment: fixed; /* Keeps background in place while scrolling */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-image 2s ease-in-out;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.title-sign {
+    background-image: url('./img/index/signboard.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 240px 90px;
+    margin: 50px 0 20px;   
+    margin-bottom: 100px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.title-sign.clicked {
+    transform: translate(8px, 8px) !important;
+}
+
+h1 {
+    color: #382410;
+    font-size: 96px;
+    margin: 0;
+    text-shadow: 3px 3px 0 #c9a66b;
+}
+
+.title-sign {
+    /* ... existing styles ... */
+    cursor: pointer; /* Makes it clear it's interactive */
+    transition: all 0.1s ease; /* Smooth transition for hover effect */
+    position: relative; /* Needed for the pressed effect */
+}
+
+.title-sign:hover {
+    transform: translate(4px, 4px); /* Moves the sign down-right like buttons */
+}
+
+.title-sign:active {
+    transform: translate(6px, 6px); /* Even more "pressed" effect when clicking */
+}
+
+/* Optional: Add a shadow effect like the buttons */
+.title-sign::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/index/signboard_shadow.png'); /* Optional shadow image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    opacity: 0.8;
+    transition: all 0.1s ease;
+}
+
+.title-sign:hover::after {
+    top: 4px;
+    left: 4px;
+    opacity: 0.6;
+}
+
+.title-sign:active::after {
+    top: 2px;
+    left: 2px;
+    opacity: 0.4;
+}
+
+.button-row {
+    display: flex;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.pixel-button,
+a.pixel-button {
+    display: inline-block; /* Allows padding and proper sizing */
+    text-decoration: none; /* Removes underline */
+    text-align: center; /* Centers text */
+    background-image: url('./img/index/signbutton.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    border: none;
+    padding: 35px 25px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+a.pixel-button:visited {
+    color: white; /* Maintains button text color */
+}
+
+.pixel-button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url('./img/index/stickynav.png'); /* Wooden brown */
+    padding: 10px 20px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 4px solid #5e3c1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sticky-nav-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    align-items: center;
+}
+
+.sticky-nav .back-to-top {
+    /* Use a different icon/image if desired */
+    background-image: url('./img/index/signbutton.png');
+    margin-right: 20px; /* Extra space before other buttons */
+}
+
+.sticky-nav .back-to-top:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+}
+
+/* Optional: Add an arrow icon */
+.back-to-top::before {
+    content: "↑";
+    margin-right: 5px;
+}
+
+.sticky-title {
+    /* ... existing styles ... */
+    cursor: pointer; /* Make it look clickable */
+    transition: all 0.1s ease;
+    position: relative;
+    padding: 10px 20px; /* Add some padding for better click area */
+}
+
+.sticky-title.clicked {
+    transform: translate(4px, 4px) !important;
+}
+
+.sticky-title:hover {
+    text-shadow: 2px 2px 0 #c9a66b;
+    transform: translate(2px, 2px);
+}
+
+/* Optional: Add shadow effect to match main title */
+.sticky-title::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 20px);
+    background-image: url('./img/index/signboard_shadow.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 10px;
+    left: 20px;
+    z-index: -1;
+    opacity: 0.6;
+    transition: all 0.1s ease;
+}
+
+.sticky-title:hover::after {
+    top: 8px;
+    left: 18px;
+    opacity: 0.4;
+}
+
+.sticky-title.clicked::after {
+    top: 12px;
+    left: 22px;
+    opacity: 0.2;
+}
+
+.sticky-nav .pixel-button {
+    padding: 15px 20px; /* Smaller buttons */
+    font-size: 16px; /* Smaller text */
+    margin: 0 10px;
+    background-image: url('./img/index/signbutton.png'); 
+}
+
+.sticky-nav .pixel-button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+/* Show when scrolled past buttons */
+.sticky-nav.visible {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-section {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url('./img/index/paperWelcome.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    border: 4px solid #5e3c1a;
+}
+
+.welcome-section h2 {
+    color: white;
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.welcome-section h3 {
+    color: #5e281a;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0;
+}
+
+.content-section {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url('./img/index/paper.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    border: 4px solid #5e3c1a;
+}
+
+.content-section h2 {
+    color: #5e3c1a;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.content-section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.contact-section {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-image: url('./img/index/paperContact.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    border: 4px solid #5e3c1a;
+}
+
+.contact-section h2 {
+    color: #cf965d;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.contact-section p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100vh;
+    z-index: 999;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+.scrollbar-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/homepage/scrollbar-track.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+    border: 2px solid #5e3c1a;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 0 #c9a66b, inset -2px -2px 0 #382410;
+}
+
+.scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url('./img/homepage/scrollbar-thumb.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #382410;
+    top: 0;
+    transition: top 0.1s ease;
+}
+
+/* Hide default scrollbar */
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* Hide the default scrollbar */
+body {
+    overflow: hidden; /* Disables native scrolling */
+    margin: 0;
+    height: 100vh; /* Ensures the body takes full viewport height */
+}
+
+/* Make sure your custom scrollbar container is positioned correctly */
+.custom-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 25px; /* Typical scrollbar width */
+    background: #2a1a0f; /* Track color */
+    z-index: 1000;
+}
+
+.scrollbar-thumb:active {
+    cursor: grabbing;
+}
+
+.admin-button,
+a.admin-button {
+    display: inline-block; /* Allows padding and proper sizing */
+    text-decoration: none; /* Removes underline */
+    text-align: center; /* Centers text */
+    background-image: url('./img/index/adminbutton.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    border: none;
+    padding: 35px 25px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+a.admin-button:visited {
+    color: white; /* Maintains button text color */
+}
+
+.admin-button:hover {
+    background-image: url('./img/index/adminbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.sticky-nav .admin-button {
+    padding: 15px 20px; /* Smaller buttons */
+    font-size: 16px; /* Smaller text */
+    margin: 0 10px;
+    background-image: url('./img/index/adminbutton.png'); 
+}
+
+.sticky-nav .admin-button:hover {
+    background-image: url('./img/index/adminbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+

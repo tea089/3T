@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="signUpStyles.css">
+</head>
+<body>
+    <!-- Header Container -->
+    <div class="header-container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">BACK</a>
+        
+        <!-- Title -->
+        <div class="title-sign">
+            <h1>BUDGETIFY</h1>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="sign-up-container">
+            <div class="signUpTitle">
+                <h1>SIGN UP</h1>
+            </div>
+            <div class="signUp">
+                <form action="data.php" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="name" id="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Add this error message display -->
+                <?php 
+                session_start();
+                if (isset($_SESSION['register_error'])): ?>
+                    <div class="error-message">
+                        <?php 
+                        echo $_SESSION['register_error']; 
+                        unset($_SESSION['register_error']); 
+                        ?>
+                    </div>
+                <?php endif; ?>
+
+                <button type="submit" class="pixel-button">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="logIn-container">
+        <div class="logIn">
+            <h2>Already have an account?</h2>
+            <button class="pixel-button">LOG IN</button>
+        </div>
+    </div>
+
+    <div class="custom-scrollbar" id="customScrollbar">
+        <div class="scrollbar-track">
+            <div class="scrollbar-thumb"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

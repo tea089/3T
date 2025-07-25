@@ -1,0 +1,536 @@
+/* Pixel-art font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Press Start 2P', 'cursive';
+    background-image: url('./img/homepage/backgroundStoneF.png');
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    height: auto;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 200px;
+    background-image: url('./img/homepage/sidebarLeftF.png');
+    background-size: cover;
+    padding: 20px 10px;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-image: url(./img/index/signboard.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+}
+
+/* Pixel Button Styles */
+.pixel-button {
+    background-image: url('./img/index/signbutton.png');
+    background-size: 100% 100%;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-align: center;
+    text-shadow: 2px 2px 0 #5e3c1a;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.create-button {
+    background-image: url('./img/index/signbutton.png');
+    background-size: 100% 100%;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-align: center;
+    text-shadow: 2px 2px 0 #5e3c1a;
+    margin: 5px 0;
+    width: 250;
+    box-sizing: border-box;
+}
+
+.budget-button {
+    background-image: url('./img/index/signbutton.png');
+    background-size: 100% 100%;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.1s;
+    text-align: center;
+    text-shadow: 2px 2px 0 #5e3c1a;
+    margin: 5px 0;
+    width: 2;
+    box-sizing: border-box;
+}
+
+
+/* Icon Button Styles (Square) */
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.icon-button:hover {
+    transform: translate(2px, 2px);
+}
+
+/* Specific icon buttons */
+.home-button {
+    background-image: url('./img/homepage/home.png');
+}
+
+.home-button:hover {
+    background-image: url('./img/homepage/homehovered.png');
+}
+
+.review-button {
+    background-image: url('./img/homepage/star.png');
+}
+
+.review-button:hover {
+    background-image: url('./img/homepage/starhovered.png');
+}
+
+.settings-button {
+    background-image: url('./img/homepage/gear.png');
+}
+
+.settings-button:hover {
+    background-image: url('./img/homepage/gearhovered.png');
+}
+
+.logout-button {
+    background-image: url('./img/homepage/exit.png');
+}
+
+.logout-button:hover {
+    background-image: url('./img/homepage/exithovered.png');
+}
+
+/* Tooltip styles for all buttons */
+.pixel-button, .icon-button, .budget-button, .create-button {
+    position: relative;
+}
+
+.pixel-button::after, .icon-button::after, .budget-button::after, .create-button::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.pixel-button:hover::after, .icon-button:hover::after, .budget-button:hover::after, .create-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar footer for bottom buttons */
+.sidebar-footer {
+    width: 80%;
+    max-width: 160px;
+    background-image: url('./img/index/paper.png');
+    border: 0px solid #5e3c1a;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 2px solid #5e3c1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    left:0;
+    bottom: 0;
+    position: fixed;
+}
+
+.pixel-button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.create-button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.budget-button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.pixel-button:active, .icon-button:active, .budget-button:active {
+    transform: translate(4px, 4px);
+}
+
+/* Main Content Area */
+.main-content {
+    height: auto;
+    overflow: visible;
+    position: fixed;
+    margin-left: 220px;
+    padding: 0px;
+    flex-grow: 1;
+}
+
+.content-section {
+    background-color: rgba(232, 217, 181, 0.8);
+    border-radius: 20px;
+    padding: 30px;
+    border: 4px solid #5e3c1a;
+    margin: 0 auto;
+    height:10px;
+}
+
+h1 {
+    color: #382410;
+    font-size: 18px;
+    margin: 0;
+    text-shadow: 3px 3px 0 #c9a66b;
+    text-align: left;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Right Sidebar Styles */
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background-image: url('./img/homepage/sidebarLeftF.png');
+    background-size: cover;
+    z-index: 1002;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.right-sidebar.active {
+    right: 0;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #5e3c1a;
+    padding-bottom: 10px;
+}
+
+.sidebar-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.close-sidebar:hover {
+    color: #c9a66b;
+}
+
+.background-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.bg-option {
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.bg-option:hover {
+    transform: scale(1.05);
+}
+
+.bg-option img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+}
+
+.bg-option span {
+    display: block;
+    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+}
+
+/* User Info Section */
+.user-info {
+    background-color: rgba(232, 217, 181, 0.8);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+    text-align: center;
+}
+
+.user-info p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #382410;
+}
+
+.user-info strong {
+    color: #5e281a;
+    font-size: 14px;
+}
+
+/* User Dashboard */
+.user-dashboard {
+    background-color: rgba(232, 217, 181, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+    margin-top: 90px;
+}
+
+.user-dashboard h2 {
+    font-size: 18px;
+    color: #5e281a;
+    margin-bottom: 15px;
+}
+
+.delete-btn {
+    background-image: url('./img/index/deletebutton.png');
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    margin: 2px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.delete-btn:hover {
+    background-image: url('./img/index/deletebuttonhovered.png');
+}
+
+.budget-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(500px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.budget-card {
+    background-image: url('./img/homepage/cardF.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.budget-card h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.budget-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: auto;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--success-color);
+    transition: width 0.6s ease;
+}
+
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scrollbar-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/homepage/scrollbar-track.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+    border: 2px solid #5e3c1a;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 0 #c9a66b, inset -2px -2px 0 #382410;
+}
+
+.scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url('./img/homepage/scrollbar-thumb.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #382410;
+    top: 0;
+    transition: top 0.1s ease;
+}
+
+/* Hide default scrollbar */
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* Hide the default scrollbar */
+body {
+    overflow: hidden; /* Disables native scrolling */
+    margin: 0;
+}
+
+.scrollbar-thumb:active {
+    cursor: grabbing;
+}
+/* 1. Body Setup - Allow custom scrolling */
+body {
+    margin: 0;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Disable DEFAULT scrolling */
+    position: relative; /* For absolute positioning of scrollbar */
+}
+
+/* 2. Create a scrollable content container */
+.scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 30px; /* Make space for scrollbar */
+    bottom: 0;
+    overflow-y: hidden; /* We'll handle scrolling manually */
+    padding-right: 15px; /* Prevent content from hiding behind scrollbar */
+}
+
+/* 3. Your custom scrollbar (keep your existing styles) */
+.custom-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 30px;
+    z-index: 1000;
+}

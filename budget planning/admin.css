@@ -1,0 +1,304 @@
+/* Import your pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Background styling */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url('./img/index/background_spring.png'); /* Change path/image as desired */
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    color: #2e1a0f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Title styling */
+.h2 {
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 2px 2px 0 #c9a66b;
+    text-align: center;
+    margin: 40px 0 20px;
+    background-image: url('./img/index/signboard.png');
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px 60px;
+    border-radius: 30px;
+    border: 4px solid #5e3c1a;
+    display: inline-block;
+}
+
+/* Table styling */
+table {
+    width: 90vw;
+    max-width: 900px;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: rgba(84, 151, 151, 0.92);
+    margin: 30px auto 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    border: 4px solid #5e3c1a;
+}
+
+/* Table headers */
+th {
+    border: 1px solid #070707;
+    padding: 18px 12px;
+    background-color: #000000c7;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 1px 1px 0 #c9a66b;
+}
+
+/* Table cells */
+td {
+    border: 1px solid #111111;
+    padding: 15px 10px;
+    background-color: rgba(255,255,255,0.8);
+    color: #2e1a0f;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Pixel-art button */
+.button {
+    color: white;
+    border: none;
+    background-image: url('./img/index/signbutton.png');
+    background-size: 100% 100%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    padding: 18px 40px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 2px 4px 0 #5e3c1a;
+    margin: 40px 0;
+    transition: all 0.1s;
+    text-shadow: 2px 2px 0 #5e3c1a;
+}
+
+.button:hover {
+    background-image: url('./img/index/signbuttonhovered.png');
+    transform: translate(2px, 2px);
+}
+
+.button:active {
+    transform: translate(4px, 4px);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Make sure your custom scrollbar container is positioned correctly */
+.custom-scrollbar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 25px; /* Typical scrollbar width */
+    background: #2a1a0f; /* Track color */
+    z-index: 1000;
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100vh;
+    z-index: 999;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
+.scrollbar-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/homepage/scrollbar-track.png');
+    background-repeat: repeat-y;
+    background-size: 100%;
+    border: 2px solid #5e3c1a;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 0 #c9a66b, inset -2px -2px 0 #382410;
+}
+
+.scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url('./img/homepage/scrollbar-thumb.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #382410;
+    top: 0;
+    transition: top 0.1s ease;
+}
+
+.scrollbar-thumb:active {
+    cursor: grabbing;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Right Sidebar Styles */
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background-image: url('./img/homepage/sidebarLeftF.png');
+    background-size: cover;
+    z-index: 1002;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.right-sidebar.active {
+    right: 0;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #5e3c1a;
+    padding-bottom: 10px;
+}
+
+.sidebar-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.close-sidebar:hover {
+    color: #c9a66b;
+}
+
+.background-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.bg-option {
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.bg-option:hover {
+    transform: scale(1.05);
+}
+
+.bg-option img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+}
+
+.bg-option span {
+    display: block;
+    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+}
+
+.settings-button {
+    background-image: url('./img/homepage/gear.png');
+}
+
+.settings-button:hover {
+    background-image: url('./img/homepage/gearhovered.png');
+}
+
+/* Icon Button Styles (Square) */
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: all 0.2s;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 135px;
+    background-image: url('./img/homepage/sidebarLeftF.png');
+    background-size: cover;
+    padding: 20px 10px;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-title {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-image: url('./img/index/signboard.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 8px;
+    border: 2px solid #5e3c1a;
+}
